@@ -1,0 +1,16 @@
+<div class="row">
+<div class="col-xs-10">
+<app-teacher-edit
+(subjectAdded)="onSubjectAdded($event)"></app-teacher-edit>
+<hr>
+<ul class="list-group">
+<a
+  class="list-group-item"
+  style="cursor: pointer"
+  *ngFor="let subject of subjects"
+  >
+  {{ subject.name }} ({{ subject.amount }})
+  </a>
+</ul>
+</div>
+</div>
