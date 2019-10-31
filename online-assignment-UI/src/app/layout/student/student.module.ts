@@ -5,13 +5,15 @@ import { StudentRoutingModule } from './student-routing-module';
 import { ViewStudentComponent } from './view-student/view-student.component';
 import { AddStudentComponent } from './add-student/add-student.component';
 import { EditStudentComponent } from './edit-student/edit-student.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 @NgModule({
   declarations: [ViewStudentComponent, AddStudentComponent, EditStudentComponent],
   imports: [
     CommonModule,
     LayoutModule,
-    StudentRoutingModule
+    StudentRoutingModule,
+    NgxDatatableModule 
   ]
 })
 export class StudentModule { }

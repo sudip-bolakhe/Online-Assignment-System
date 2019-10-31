@@ -14,10 +14,10 @@ export class ViewStudentComponent implements OnInit {
   rows: Array<StudentModel> = [];
   columns = [
 
-    { prop: 'name' },
-    { prop: 'manufacturer' },
-    { prop: 'price' },
-    { prop: 'expiryDate' },
+    { prop: 'firstName' },
+    { prop: 'lastName' },
+    { prop: 'class' },
+    { prop: 'rollNo' }
 
   ];
   @ViewChild(DatatableComponent,null) table: DatatableComponent;

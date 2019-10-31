@@ -6,18 +6,18 @@
   </div>
   <div class="card-body table-responsive">
       <div>
-          <ngx-datatable #table class="bootstrap" [rows]="rows" [loadingIndicator]="loadingIndicator" [columns]="columns" [columnMode]="'force'"
+           <ngx-datatable #table class="bootstrap" [rows]="rows" [loadingIndicator]="loadingIndicator" [columns]="columns" [columnMode]="'force'"
               [headerHeight]="40" [footerHeight]="40" [limit]="10" [rowHeight]="'auto'" [reorderable]="reorderable">
               <ngx-datatable-column name="S.N">
                   <ng-template let-rowIndex="rowIndex" ngx-datatable-cell-template>
                       {{rowIndex+1}}
                   </ng-template>
               </ngx-datatable-column>
-              <ngx-datatable-column name="Name"></ngx-datatable-column>
-              <ngx-datatable-column name="Manufacturer"></ngx-datatable-column>
-              <ngx-datatable-column name="Price"></ngx-datatable-column>
-              <ngx-datatable-column name="Stock"></ngx-datatable-column>
-              <ngx-datatable-column name="Expiry Date"></ngx-datatable-column>
+              <ngx-datatable-column name="First Name"></ngx-datatable-column>
+              <ngx-datatable-column name="Last Name"></ngx-datatable-column>
+              <ngx-datatable-column name="Clsss"></ngx-datatable-column>
+              <ngx-datatable-column name="Roll No."></ngx-datatable-column>
+              
               <ngx-datatable-column name="Action" prop="id" [sortable]="false">
                   <ng-template let-rowIndex="rowIndex" let-id="id" let-value="value" ngx-datatable-cell-template>
                       <i class="fa fa-pencil-square-o" [routerLink]="['/product/editproduct/'+value]">
@@ -27,7 +27,7 @@
                       </i>
                   </ng-template>
               </ngx-datatable-column>
-          </ngx-datatable>
+          </ngx-datatable> 
 
       </div>
   </div>
