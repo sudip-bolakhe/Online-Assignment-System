@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StudentComponent } from './student.component';
 import { LayoutModule } from '../layout.module';
 import { StudentRoutingModule } from './student-routing-module';
+import { ViewStudentComponent } from './view-student/view-student.component';
+import { AddStudentComponent } from './add-student/add-student.component';
+import { EditStudentComponent } from './edit-student/edit-student.component';
 
 @NgModule({
-  declarations: [StudentComponent],
+  declarations: [ViewStudentComponent, AddStudentComponent, EditStudentComponent],
   imports: [
     CommonModule,
     LayoutModule,
