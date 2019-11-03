@@ -1,6 +1,7 @@
+import { UserModel } from 'src/app/shared/model/user.model';
+
 export class StudentModel{
-    firstName:String;
-    lasName:String;
-    class:String;
-    rollNo:String;
-}
+   public user:UserModel;
+   public faculty:String;
+    public rollNo:String;
+} 

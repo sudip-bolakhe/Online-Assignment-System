@@ -6,6 +6,7 @@ import { ViewStudentComponent } from './view-student/view-student.component';
 import { AddStudentComponent } from './add-student/add-student.component';
 import { EditStudentComponent } from './edit-student/edit-student.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ViewStudentComponent, AddStudentComponent, EditStudentComponent],
@@ -13,7 +14,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     CommonModule,
     LayoutModule,
     StudentRoutingModule,
-    NgxDatatableModule 
+    NgxDatatableModule, FormsModule
   ]
 })
 export class StudentModule { }
