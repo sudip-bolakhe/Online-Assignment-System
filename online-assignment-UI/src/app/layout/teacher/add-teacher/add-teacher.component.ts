@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TeacherModel } from '../teacher.model';
+import { UserModel } from 'src/app/shared/model/user.model';
 
 @Component({
   selector: 'app-add-teacher',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTeacherComponent implements OnInit {
 
-  constructor() { }
+  teacher:TeacherModel;
+  errors:String;
+  constructor() { 
+    this.teacher = new TeacherModel();
+    this.teacher.user = new UserModel();
+    this.errors= new String();
+  }
 
   ngOnInit() {
   }
