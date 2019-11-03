@@ -3,13 +3,14 @@ package com.sushmita.onlineassignmentsystem.model;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "feedback")
 public class Feedback {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "feedbackId")
     private Long id;
     private int marks;
+    @Column(name = "\"rank\"")
     private String rank;
     private String comment;//excellent,very good,good,worst
     @ManyToOne
