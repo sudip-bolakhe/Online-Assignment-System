@@ -1,5 +1,5 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
-    <div class="list-group">
+    <!-- <div class="list-group">
         <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-dashboard"></i>&nbsp;
             <span>{{ 'Dashboard' | translate }}</span>
@@ -148,8 +148,106 @@
                     </ul>
                 </li>
             </div>
+        </div> -->
+    <div class="list-group">
+
+         <!-- menu for student -->
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('student')">
+                <i ></i>&nbsp;
+                <span>{{ 'Student' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'student'">
+                <ul class="submenu">
+                    <li>
+                        <a routerLink="/student/add" [routerLinkActive]="['router-link-active']">
+                            <i class="fa fa-monument"></i>&nbsp;
+                            <span>{{ 'Add Student' | translate }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/student/list" [routerLinkActive]="['router-link-active']" >
+                            <i class="fa fa-monument"></i>&nbsp;
+                            <span>{{ 'View Student' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+         <!-- menu for Teacher -->
+        <div class="nested-menu">
+         <a class="list-group-item" (click)="addExpandClass('teacher')">
+             <i ></i>&nbsp;
+             <span>{{ 'Teacher' | translate }}</span>
+         </a>
+         <li class="nested" [class.expand]="showMenu === 'teacher'">
+             <ul class="submenu">
+                 <li>
+                     <a routerLink="/teacher/add" [routerLinkActive]="['router-link-active']">
+                         <i class="fa fa-monument"></i>&nbsp;
+                         <span>{{ 'Add Teacher' | translate }}</span>
+                     </a>
+                 </li>
+                 <li>
+                     <a routerLink="/teacher/list" [routerLinkActive]="['router-link-active']" >
+                         <i class="fa fa-monument"></i>&nbsp;
+                         <span>{{ 'View Teacher' | translate }}</span>
+                     </a>
+                 </li>
+             </ul>
+         </li>
+        </div>
+
+         <!-- menu for Questions -->
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('question')">
+                <i ></i>&nbsp;
+                <span>{{ 'Questions' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'question'">
+                <ul class="submenu">
+                    <li>
+                        <a routerLink="/question/add" [routerLinkActive]="['router-link-active']">
+                            <i class="fa fa-monument"></i>&nbsp;
+                            <span>{{ 'Add Questions' | translate }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/question/list" [routerLinkActive]="['router-link-active']" >
+                            <i class="fa fa-monument"></i>&nbsp;
+                            <span>{{ 'View Questions' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+        <!-- menu for Assignment -->
+        <div class="nested-menu">
+                <a class="list-group-item" (click)="addExpandClass('assignment')">
+                    <i ></i>&nbsp;
+                    <span>{{ 'Assignment' | translate }}</span>
+                </a>
+                <li class="nested" [class.expand]="showMenu === 'assignment'">
+                    <ul class="submenu">
+                        <li>
+                            <a routerLink="/assignment/submit" [routerLinkActive]="['router-link-active']">
+                                <i class="fa fa-monument"></i>&nbsp;
+                                <span>{{ 'Submit Assignment' | translate }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/assignment/list" [routerLinkActive]="['router-link-active']" >
+                                <i class="fa fa-monument"></i>&nbsp;
+                                <span>{{ 'View Assignments' | translate }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
         </div>
     </div>
+   
     <div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">
         <i class="fa fa-fw fa-angle-double-{{collapsed?'right':'left'}}"></i>&nbsp;
         <span>{{ 'Collapse Sidebar' | translate }}</span>

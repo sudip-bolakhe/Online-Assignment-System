@@ -16,7 +16,9 @@ const routes: Routes = [
             { path: 'components', loadChildren: () => import('./bs-component/bs-component.module').then(m => m.BsComponentModule) },
             { path: 'blank-page', loadChildren: () => import('./blank-page/blank-page.module').then(m => m.BlankPageModule) },
             { path: 'student', loadChildren: () => import('./student/student.module').then(m => m.StudentModule) },
-            { path: 'teacher', loadChildren: () => import('./teacher/teacher.module').then(m => m.TeacherModule) }
+            { path: 'teacher', loadChildren: () => import('./teacher/teacher.module').then(m => m.TeacherModule) },
+            { path: 'question', loadChildren: () => import('./question/question.module').then(m => m.QuestionModule) },
+            { path: 'assignment', loadChildren: () => import('./assignment/assignment.module').then(m => m.AssignmentModule) }
         ]
     }
 ];
