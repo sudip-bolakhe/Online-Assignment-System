@@ -1,4 +1,4 @@
-<form class="form-horizontal" #addUserForm="ngForm" (ngSubmit)="addUser()">
+<form class="form-horizontal" #addUserForm="ngForm" (ngSubmit)="addTeacher()">
 
     <!-- Username-->
     <div class="form-group">
@@ -23,7 +23,7 @@
       </div>
       <div *ngIf="password?.touched">
         
-              <div class="text-danger" *ngIf="password.errors?.required"> name is required
+              <div class="text-danger" *ngIf="password.errors?.required"> Password is required
               </div>
               <div class="text-danger" *ngIf="password.errors?.pattern"> password must contain alphabet symbol number
               </div>

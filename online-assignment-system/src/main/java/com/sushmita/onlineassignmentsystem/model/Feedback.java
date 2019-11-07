@@ -19,8 +19,10 @@ public class Feedback {
     @ManyToOne
     @JoinColumn(name = "teacherId")
     private Teacher teacher;
-public Feedback(){
-}
+
+    public Feedback() {
+    }
+
     public Long getId() {
         return id;
     }
@@ -28,6 +30,7 @@ public Feedback(){
     public void setId(Long id) {
         this.id = id;
     }
+
     public int getMarks() {
         return marks;
     }

@@ -10,18 +10,20 @@ import java.time.LocalDate;
 public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="questionId")
+    @Column(name = "questionId")
     private Long id;
     private String subject;
     private String faculty;
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate deadline;
     @ManyToOne
     @JoinColumn(name = "teacherId")
     private Teacher teacher;
-public Question(){
 
-}
+    public Question() {
+
+    }
+
     public Long getId() {
         return id;
     }

@@ -13,9 +13,13 @@
                         {{rowIndex+1}}
                     </ng-template>
                 </ngx-datatable-column>
-                <ngx-datatable-column name="First Name"></ngx-datatable-column>
-                <ngx-datatable-column name="Last Name"></ngx-datatable-column>
-                <ngx-datatable-column name="Subject"></ngx-datatable-column>               
+                <ngx-datatable-column name="First Name">
+        
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Last Name">
+                    
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Subject" ></ngx-datatable-column>               
                 <ngx-datatable-column name="Action" prop="id" [sortable]="false">
                     <ng-template let-rowIndex="rowIndex" let-id="id" let-value="value" ngx-datatable-cell-template>
                         <i class="fa fa-pencil-square-o" [routerLink]="['/product/editproduct/'+value]">

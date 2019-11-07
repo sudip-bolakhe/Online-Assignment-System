@@ -1,12 +1,13 @@
 package com.sushmita.onlineassignmentsystem.model;
 
 import javax.persistence.*;
+
 @Entity
 @Table
 public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="answerId")
+    @Column(name = "answerId")
     private Long id;
     private String subject;
     private String faculty;
@@ -19,7 +20,7 @@ public class Answer {
     @JoinColumn(name = "questionId")
     private Question question;
 
-    public Answer(){
+    public Answer() {
 
     }
 
