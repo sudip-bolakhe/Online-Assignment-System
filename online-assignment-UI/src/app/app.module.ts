@@ -7,7 +7,6 @@ import { LanguageTranslationModule } from './shared/modules/language-translation
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthGuard } from './shared';
 
 @NgModule({
     imports: [
@@ -19,7 +18,6 @@ import { AuthGuard } from './shared';
         AppRoutingModule
     ],
     declarations: [AppComponent],
-    providers: [AuthGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
