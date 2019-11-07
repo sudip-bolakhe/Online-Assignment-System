@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentModel } from '../student.model';
 import { UserModel } from 'src/app/shared/model/user.model';
+import {  Router } from '@angular/router';
+import { StudentService } from '../student.service';
 
 @Component({
   selector: 'app-add-student',
@@ -11,7 +13,7 @@ export class AddStudentComponent implements OnInit {
 
   student: StudentModel;
   errors:String = new String(" ");
-  constructor() {
+  constructor(private router : Router, private studnetService: StudentService) {
    this.student = new StudentModel();
    this.student.user = new UserModel();
    }
@@ -20,4 +22,14 @@ export class AddStudentComponent implements OnInit {
    
   }
 
+  addStudent(){
+    this.studnetService.saveTeacher(this.student).subscribe(
+      data =>{
+        this.router.navigate(['/student/list']);
+      },
+      error =>{
+
+      }
+    );
+  }
 }

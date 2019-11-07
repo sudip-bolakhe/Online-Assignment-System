@@ -1,4 +1,4 @@
-<form class="form-horizontal" #addUserForm="ngForm" (ngSubmit)="addUser()">
+<form class="form-horizontal" #addUserForm="ngForm" (ngSubmit)="addStudent()">
 
   <!-- Username-->
   <div class="form-group">
@@ -123,6 +123,22 @@
               </div>
             </div>
     </div>
+
+     <!-- Roll No-->
+     <div class="form-group">
+        <label class=" control-label" for="roll">Roll No</label><span  *ngIf="roll.errors?.required" style="color:red">*</span>
+        <div class="col-md-4">
+          <input id="roll" [(ngModel)]="student.roll" #roll="ngModel" name="roll" placeholder="001" class="form-control input-md" required  pattern="^[0-9]+$" type="text">
+        </div>
+        <div *ngIf="roll?.touched">
+          
+                <div class="text-danger" *ngIf="roll.errors?.required"> Roll No. is required
+                </div>
+                <div class="text-danger" *ngIf="roll.errors?.pattern"> Invalid Roll No 
+                </div>
+              </div>
+      </div>
+
 
     <!-- Role-->
     <div class="form-group">

@@ -14,11 +14,26 @@
                     </ng-template>
                 </ngx-datatable-column>
                 <ngx-datatable-column name="First Name">
-        
+                        <ng-template let-fname="row" ngx-datatable-cell-template>
+                                {{fname.user.firstName}}
+                            </ng-template>
                 </ngx-datatable-column>
                 <ngx-datatable-column name="Last Name">
-                    
+                        <ng-template let-lname="row" ngx-datatable-cell-template>
+                                {{lname.user.lastName}}
+                            </ng-template>
                 </ngx-datatable-column>
+                <ngx-datatable-column name="Address">
+                        <ng-template let-address="row" ngx-datatable-cell-template>
+                                {{address.user.address}}
+                            </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Email">
+                        <ng-template let-email="row" ngx-datatable-cell-template>
+                                {{email.user.email}}
+                            </ng-template>
+                </ngx-datatable-column>
+                
                 <ngx-datatable-column name="Subject" ></ngx-datatable-column>               
                 <ngx-datatable-column name="Action" prop="id" [sortable]="false">
                     <ng-template let-rowIndex="rowIndex" let-id="id" let-value="value" ngx-datatable-cell-template>

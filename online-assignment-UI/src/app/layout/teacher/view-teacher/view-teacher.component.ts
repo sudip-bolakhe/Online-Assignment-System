@@ -11,12 +11,7 @@ import { TeacherService } from '../teacher.service';
 export class ViewTeacherComponent implements OnInit {
   teachers: Array<TeacherModel>;
   rows: Array<TeacherModel  > = [];
-  columns = [
-    { prop: 'firstName' },
-    { prop: 'lastName' },
-    { prop: 'subject' }
-
-  ];
+ 
   @ViewChild(DatatableComponent,null) table: DatatableComponent;
   constructor(private teacherService : TeacherService) { }
 
@@ -24,7 +19,8 @@ export class ViewTeacherComponent implements OnInit {
     this.teacherService.getAll().subscribe(
       data =>{
         this.teachers = JSON.parse(JSON.parse(JSON.stringify(data))._body);
-        
+        console.log(this.teachers);
+        this.rows=this.teachers;
       },error =>{
 
       }

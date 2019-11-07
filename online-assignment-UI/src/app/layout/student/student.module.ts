@@ -7,14 +7,18 @@ import { AddStudentComponent } from './add-student/add-student.component';
 import { EditStudentComponent } from './edit-student/edit-student.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { FormsModule } from '@angular/forms';
+import { StudentService } from './student.service';
+import {  HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [ViewStudentComponent, AddStudentComponent, EditStudentComponent],
+  providers : [StudentService],
   imports: [
     CommonModule,
     LayoutModule,
     StudentRoutingModule,
-    NgxDatatableModule, FormsModule
+    NgxDatatableModule, FormsModule, HttpModule, RouterModule
   ]
 })
 export class StudentModule { }
