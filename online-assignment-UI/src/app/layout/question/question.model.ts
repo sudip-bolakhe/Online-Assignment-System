@@ -6,4 +6,5 @@ export class QuestionModel{
     public subject:SubjectModel;
     public teacher:TeacherModel;
     public deadLine:String;
+    public question:String;
 } 
