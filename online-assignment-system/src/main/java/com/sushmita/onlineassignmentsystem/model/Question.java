@@ -12,7 +12,9 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "questionId")
     private Long id;
-    private String subject;
+    @ManyToOne
+    @JoinColumn(name = "subject_id")
+    private Subject subject;
     private String faculty;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate deadline;
@@ -32,11 +34,11 @@ public class Question {
         this.id = id;
     }
 
-    public String getSubject() {
+    public Subject getSubject() {
         return subject;
     }
 
-    public void setSubject(String subject) {
+    public void setSubject(Subject subject) {
         this.subject = subject;
     }
 
