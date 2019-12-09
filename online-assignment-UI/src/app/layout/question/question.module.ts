@@ -6,6 +6,8 @@ import { AddQuestionComponent } from './add-question/add-question.component';
 import { ViewQuestionComponent } from './view-question/view-question.component';
 import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SubjectSerivce } from '../subject/subject.service';
+import { HttpModule } from '@angular/http';
+import { QuestionService } from './question.service';
 
 
 @NgModule({
@@ -13,8 +15,9 @@ import { SubjectSerivce } from '../subject/subject.service';
   imports: [
     CommonModule,
     QuestionRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
-  providers : [SubjectSerivce]
+  providers : [SubjectSerivce, QuestionService]
 })
 export class QuestionModule { }

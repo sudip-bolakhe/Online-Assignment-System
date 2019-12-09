@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SubjectModel } from '../../subject/subject.model';
 import { SubjectSerivce } from '../../subject/subject.service';
 import { QuestionModel } from '../question.model';
+import { QuestionService } from '../question.service';
 
 @Component({
   selector: 'app-add-question',
@@ -13,7 +14,8 @@ export class AddQuestionComponent implements OnInit {
   question:QuestionModel;
   subjects:Array<SubjectModel>; 
 
-  constructor(private subjectService:SubjectSerivce) { 
+  constructor(private subjectService:SubjectSerivce
+    , private questionService: QuestionService) { 
     this.question = new QuestionModel();
     this.question.subject = new SubjectModel();
 
@@ -39,11 +41,16 @@ export class AddQuestionComponent implements OnInit {
   }
 
   changeSubject(event: any){
-    console.log(" reached");
       this.getSubject(this.question.subject.grade,this.question.subject.faculty);
   }
-  setSubject(event){
-    console.log(this.question.subject.name);
-    console.log(this.question.subject);
+  addQuestion(){
+      this.questionService.addQuestion(this.question).subscribe(
+        data =>{
+
+        },
+        error =>{
+
+        }
+      );
   }
 }
