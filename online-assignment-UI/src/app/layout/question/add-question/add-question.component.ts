@@ -11,35 +11,40 @@ import { QuestionService } from '../question.service';
 })
 export class AddQuestionComponent implements OnInit {
 
-  question:QuestionModel;
-  subjects:Array<SubjectModel>; 
+  question: QuestionModel;
+  subjects: Array<SubjectModel>;
 
+<<<<<<< HEAD
   constructor(private subjectService:SubjectSerivce
     , private questionService: QuestionService) { 
+=======
+  constructor(private subjectService: SubjectSerivce, private questionService: QuestionService) {
+>>>>>>> 557233ebf6ea2aea1e99a37900beca0f4f6f69fb
     this.question = new QuestionModel();
     this.question.subject = new SubjectModel();
 
   }
-  grades:Array<String>;
-  faculty:Array<String>;
+  grades: Array<String>;
+  faculty: Array<String>;
 
 
   ngOnInit() {
-   this.grades = ["11","12"];
-   this.faculty = ["Science", " Management"];
+    this.grades = ["11", "12"];
+    this.faculty = ["Science", " Management"];
   }
 
-  getSubject(grade, faculty){
-     this.subjectService.getSubjects(grade, faculty).subscribe(
-      data =>{
+  getSubject(grade, faculty) {
+    this.subjectService.getSubjects(grade, faculty).subscribe(
+      data => {
         this.subjects = JSON.parse(JSON.parse(JSON.stringify(data))._body);
         console.log(this.subjects);
-      },error =>{
+      }, error => {
 
       }
     );
   }
 
+<<<<<<< HEAD
   changeSubject(event: any){
       this.getSubject(this.question.subject.grade,this.question.subject.faculty);
   }
@@ -52,5 +57,14 @@ export class AddQuestionComponent implements OnInit {
 
         }
       );
+=======
+  changeSubject(event: any) {
+    console.log(" reached");
+    this.getSubject(this.question.subject.grade, this.question.subject.faculty);
+  }
+
+  addQuestion(question: QuestionModel) {
+    this.questionService.addQuestion(question);
+>>>>>>> 557233ebf6ea2aea1e99a37900beca0f4f6f69fb
   }
 }

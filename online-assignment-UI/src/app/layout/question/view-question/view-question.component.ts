@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { QuestionModel } from '../question.model';
+import { QuestionService } from '../question.service';
 
 @Component({
   selector: 'app-view-question',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewQuestionComponent implements OnInit {
 
-  constructor() { }
 
+  questions: Array<QuestionModel>;
+
+  constructor(private questionService: QuestionService) {
+
+  }
   ngOnInit() {
+    this.getAllQuestions();
+  }
+
+  getAllQuestions() {
+    this.questionService.getAll().subscribe(
+      data => {
+        this.questions = JSON.parse(JSON.parse(JSON.stringify(data))._body);
+      }, error => {
+
+      }
+    );
   }
 
 }
