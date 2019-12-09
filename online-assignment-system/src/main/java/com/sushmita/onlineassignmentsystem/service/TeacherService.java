@@ -7,4 +7,6 @@ public interface TeacherService {
     List<Teacher> getAllTeacher();
 
     Teacher saveOrUpdateTeacher(Teacher teacher);
+
+    Teacher getById(long id);
 }

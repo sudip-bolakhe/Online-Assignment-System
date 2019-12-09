@@ -29,4 +29,9 @@ public class TeacherServiceImpl implements TeacherService {
         teacher.setUser(user);
         return teacherRepository.save(teacher);
     }
+
+    @Override
+    public Teacher getById(long id) {
+        return teacherRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+    }
 }

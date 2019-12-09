@@ -5,7 +5,6 @@ import com.sushmita.onlineassignmentsystem.model.User;
 import java.util.List;
 
 public interface UserService {
-    List <User> getAllUser();
+   Object getByUsernameAndPassword(String username, String password);
 
-    User saveOrUpdateUser(User user);
 }

@@ -2,6 +2,7 @@ package com.sushmita.onlineassignmentsystem.controller;
 
 import com.sushmita.onlineassignmentsystem.model.User;
 import com.sushmita.onlineassignmentsystem.repository.UserRepository;
+import com.sushmita.onlineassignmentsystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,16 +16,17 @@ import javax.servlet.ServletException;
 public class UserController {
 
     @Autowired
-    UserRepository userRepository;
+    UserService userService;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public void login(@RequestBody User userJson) throws ServletException {
-        if (userJson.getUserName() == null || userJson.getPassword() == null) {
+    public Object login(@RequestBody User userJson) throws ServletException {
+        if (userJson.getUsername() == null || userJson.getPassword() == null) {
             throw new ServletException("Please fill the username and password");
         }
         else {
-            System.out.println("login success");
+          return userService.getByUsernameAndPassword(userJson.getUsername(), userJson.getPassword());
         }
+
         }
 
     }

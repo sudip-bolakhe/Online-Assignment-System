@@ -14,4 +14,7 @@ export class TeacherService {
     return this.http.post(this.teacherUrl +"/save",teacherModel);
   }
  
+  getById(id){
+    return this.http.get(this.teacherUrl +"/" +id);
+  }
 }

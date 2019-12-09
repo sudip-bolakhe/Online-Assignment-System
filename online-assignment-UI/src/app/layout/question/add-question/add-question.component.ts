@@ -3,6 +3,9 @@ import { SubjectModel } from '../../subject/subject.model';
 import { SubjectSerivce } from '../../subject/subject.service';
 import { QuestionModel } from '../question.model';
 import { QuestionService } from '../question.service';
+import { TeacherService } from '../../teacher/teacher.service';
+import { Router } from '@angular/router';
+import { TeacherModel } from '../../teacher/teacher.model';
 
 @Component({
   selector: 'app-add-question',
@@ -14,14 +17,13 @@ export class AddQuestionComponent implements OnInit {
   question: QuestionModel;
   subjects: Array<SubjectModel>;
 
-<<<<<<< HEAD
-  constructor(private subjectService:SubjectSerivce
-    , private questionService: QuestionService) { 
-=======
-  constructor(private subjectService: SubjectSerivce, private questionService: QuestionService) {
->>>>>>> 557233ebf6ea2aea1e99a37900beca0f4f6f69fb
+  constructor(private subjectService: SubjectSerivce
+    , private questionService: QuestionService
+    , private teacherService: TeacherService
+    , private router: Router) {
     this.question = new QuestionModel();
     this.question.subject = new SubjectModel();
+    this.question.teacher = new TeacherModel();
 
   }
   grades: Array<String>;
@@ -31,6 +33,7 @@ export class AddQuestionComponent implements OnInit {
   ngOnInit() {
     this.grades = ["11", "12"];
     this.faculty = ["Science", " Management"];
+    this.getTeacher();
   }
 
   getSubject(grade, faculty) {
@@ -44,27 +47,33 @@ export class AddQuestionComponent implements OnInit {
     );
   }
 
-<<<<<<< HEAD
   changeSubject(event: any){
       this.getSubject(this.question.subject.grade,this.question.subject.faculty);
   }
   addQuestion(){
+     
       this.questionService.addQuestion(this.question).subscribe(
         data =>{
-
+          this.router.navigateByUrl("/question/list")
         },
         error =>{
 
         }
       );
-=======
-  changeSubject(event: any) {
-    console.log(" reached");
-    this.getSubject(this.question.subject.grade, this.question.subject.faculty);
+
   }
 
-  addQuestion(question: QuestionModel) {
-    this.questionService.addQuestion(question);
->>>>>>> 557233ebf6ea2aea1e99a37900beca0f4f6f69fb
+  getTeacher(){
+   this.teacherService.getById(this.getTeacherId()).subscribe(
+      data =>{
+       this.question.teacher = JSON.parse(JSON.parse(JSON.stringify(data))._body);
+      }, error => {
+
+      }
+    );
+  }
+
+  getTeacherId(){
+    return localStorage.getItem("id");
   }
 }

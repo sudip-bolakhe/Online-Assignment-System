@@ -24,8 +24,6 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public Question saveOrUpdateQuestion(Question question) {
-        Teacher teacher = teacherRepository.save(question.getTeacher());
-        question.setTeacher(teacher);
         return questionRepository.save(question);
     }
 }

@@ -29,4 +29,9 @@ public class TeacherController {
     editUser(@RequestBody Teacher teacher){
         return teacherService.saveOrUpdateTeacher(teacher);
     }
+
+    @GetMapping("/{id}")
+    public Teacher getById(@PathVariable long id){
+        return teacherService.getById(id);
+    }
 }

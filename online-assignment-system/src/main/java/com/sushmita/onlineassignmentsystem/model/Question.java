@@ -1,7 +1,5 @@
 package com.sushmita.onlineassignmentsystem.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -15,12 +13,12 @@ public class Question {
     @ManyToOne
     @JoinColumn(name = "subject_id")
     private Subject subject;
-    private String faculty;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate deadline;
+    private LocalDate deadLine;
     @ManyToOne
-    @JoinColumn(name = "teacherId")
+    @JoinColumn(name = "teacher_id")
     private Teacher teacher;
+    @Column(name = "name")
+    private String name;
 
     public Question() {
 
@@ -42,21 +40,12 @@ public class Question {
         this.subject = subject;
     }
 
-    public String getFaculty() {
-        return faculty;
+    public LocalDate getDeadLine() {
+        return deadLine;
     }
 
-    public void setFaculty(String faculty) {
-        this.faculty = faculty;
-    }
-
-
-    public LocalDate getDeadline() {
-        return deadline;
-    }
-
-    public void setDeadline(LocalDate deadline) {
-        this.deadline = deadline;
+    public void setDeadLine(LocalDate deadline) {
+        this.deadLine = deadline;
     }
 
     public Teacher getTeacher() {
@@ -65,5 +54,13 @@ public class Question {
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
