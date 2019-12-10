@@ -16,6 +16,8 @@ export class AddQuestionComponent implements OnInit {
 
   question: QuestionModel;
   subjects: Array<SubjectModel>;
+  grades: Array<String>;
+  faculty: Array<String>;
 
   constructor(private subjectService: SubjectSerivce
     , private questionService: QuestionService
@@ -26,9 +28,7 @@ export class AddQuestionComponent implements OnInit {
     this.question.teacher = new TeacherModel();
 
   }
-  grades: Array<String>;
-  faculty: Array<String>;
-
+ 
 
   ngOnInit() {
     this.grades = ["11", "12"];
@@ -50,8 +50,9 @@ export class AddQuestionComponent implements OnInit {
   changeSubject(event: any){
       this.getSubject(this.question.subject.grade,this.question.subject.faculty);
   }
+  
   addQuestion(){
-     
+  
       this.questionService.addQuestion(this.question).subscribe(
         data =>{
           this.router.navigateByUrl("/question/list")

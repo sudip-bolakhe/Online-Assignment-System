@@ -8,11 +8,16 @@ import { Injectable } from '@angular/core';
 export class QuestionService{
     questionUrl : string ="http://localhost:8080/questions";
   constructor(private http: Http) { }
-  getAll() {
-    return this.http.get(this.questionUrl + "/list");
+
+  getByTeacherId(id) {
+    return this.http.get(this.questionUrl + "/list?id="+id);
   }
 
-  addQuestion(question: QuestionModel) {
+  addQuestion(question: QuestionModel) { 
     return this.http.post(this.questionUrl +"/save",question);
+  }
+
+  getByGradeAndSubject(grade, subject) {
+    return this.http.get(this.questionUrl + "/grade/" + grade + "/subject/"+subject );
   }
 }

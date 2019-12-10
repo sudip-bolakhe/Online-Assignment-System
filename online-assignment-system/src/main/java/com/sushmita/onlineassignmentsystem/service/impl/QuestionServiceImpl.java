@@ -9,21 +9,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.List;
 @Service
 @Transactional
 public class QuestionServiceImpl implements QuestionService {
     @Autowired
     private QuestionRepository questionRepository;
-    @Autowired
-    private TeacherRepository teacherRepository;
+
     @Override
-    public List<Question> getAllQuestion() {
-        return questionRepository.findAll();
+    public List<Question> getAllQuestion(long teacherId) {
+        return questionRepository.findAllByTeacher_Id(teacherId);
     }
 
     @Override
     public Question saveOrUpdateQuestion(Question question) {
         return questionRepository.save(question);
+    }
+
+    @Override
+    public List<Question> getBySubjectAndClass(String subject, String grade) {
+        return questionRepository.findAllBySubject_NameAndSubject_GradeAndDeadLineAfter(subject, grade, LocalDate.now());
     }
 }

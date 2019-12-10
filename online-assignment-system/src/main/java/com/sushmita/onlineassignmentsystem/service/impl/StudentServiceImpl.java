@@ -29,4 +29,9 @@ public class StudentServiceImpl implements StudentService {
         student.setUser(user);
         return studentRepository.save(student);
     }
+
+    @Override
+    public Student getById(long id) {
+        return studentRepository.findById(id).orElseThrow(() -> new RuntimeException("Student Not Found"));
+    }
 }

@@ -9,6 +9,7 @@ import { SubjectSerivce } from '../subject/subject.service';
 import { HttpModule } from '@angular/http';
 import { QuestionService } from './question.service';
 import { TeacherService } from '../teacher/teacher.service';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { TeacherService } from '../teacher/teacher.service';
     CommonModule,
     QuestionRoutingModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    NgxDatatableModule
   ],
   providers : [SubjectSerivce, QuestionService, TeacherService]
 })

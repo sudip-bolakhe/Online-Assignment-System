@@ -29,4 +29,9 @@ public class StudentController {
     public Student editUser(@RequestBody Student student){
         return studentService.saveOrUpdateStudent(student);
     }
+
+    @GetMapping("/{id}")
+    public Student getById(@PathVariable long id){
+        return studentService.getById(id);
+    }
 }

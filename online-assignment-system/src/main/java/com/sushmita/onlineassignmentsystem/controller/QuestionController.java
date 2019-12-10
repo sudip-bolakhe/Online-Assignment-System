@@ -15,8 +15,8 @@ public class QuestionController {
     private QuestionService questionService;
 
     @GetMapping("/list")
-    public List<Question> getAll(){
-        return questionService.getAllQuestion();
+    public List<Question> getAll(@RequestParam long teacherId){
+        return questionService.getAllQuestion( teacherId);
     }
 
     @PostMapping("/save")
@@ -27,5 +27,10 @@ public class QuestionController {
     @PutMapping("/edit")
     public Question editQuestion(@RequestBody Question question){
         return questionService.saveOrUpdateQuestion(question);
+    }
+
+    @GetMapping("/grade/{grade}/subject/{subject}")
+    public List<Question> getAll(@PathVariable String grade,@PathVariable String subject){
+        return questionService.getBySubjectAndClass(subject, grade);
     }
 }

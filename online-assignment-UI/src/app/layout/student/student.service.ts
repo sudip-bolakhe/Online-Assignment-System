@@ -14,4 +14,7 @@ export class StudentService {
     return this.http.post(this.studentUrl +"/save",studentModel);
   }
  
+  getById(id){
+    return this.http.get(this.studentUrl +"/" +id);
+  }
 }
