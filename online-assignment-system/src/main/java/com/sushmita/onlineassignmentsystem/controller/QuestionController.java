@@ -15,8 +15,8 @@ public class QuestionController {
     private QuestionService questionService;
 
     @GetMapping("/list")
-    public List<Question> getAll(@RequestParam long teacherId){
-        return questionService.getAllQuestion( teacherId);
+    public List<Question> getAll(@RequestParam long id){
+        return questionService.getAllQuestion( id);
     }
 
     @PostMapping("/save")

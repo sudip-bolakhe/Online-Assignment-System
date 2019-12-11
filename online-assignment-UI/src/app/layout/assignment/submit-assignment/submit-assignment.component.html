@@ -18,7 +18,7 @@
         <select
             id="faculty"
             [(ngModel)]="faculty"
-            name="faculty"
+            name="faculty" 
             (change)="changeSubject($event)"
         >
             <option value="">Choose Faculty</option>
@@ -46,4 +46,18 @@
             </option>
         </select>
     </div>
+
+    <div class="row">
+        <label class="col-md-3 control-label ">Your Answer</label>
+        <textarea id="answer" [(ngModel)]="assignment.answer" name="answer" placeholder="Ask Your Question">
+          </textarea>
+      </div>
+    
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="submitBtn"></label>
+        <div class="col-md-8">
+          <button type="submit" id="submitBtn" name="submitBtn" class="btn btn-success">Submit</button>
+          <button type ="button" id="cancelBtn" name="cancelBtn" class="btn btn-danger">Cancel</button>
+        </div>
+      </div>
 </form>

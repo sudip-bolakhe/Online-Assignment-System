@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
 import { QuestionModule } from '../../question/question.module';
 import { AssignmentModel } from '../assignment.model';
 import { StudentModel } from '../../student/student.model';
+import { AssignmentService } from '../assignment.service';
 
-@Component({
-  selector: 'app-submit-assignment',
+@Component({  selector: 'app-submit-assignment',
   templateUrl: './submit-assignment.component.html',
   styleUrls: ['./submit-assignment.component.scss']
 })
@@ -23,34 +23,36 @@ export class SubmitAssignmentComponent implements OnInit {
   faculties: Array<String>;
   grade: string;
   faculty: string;
-  subject:SubjectModel;
+  subject: SubjectModel;
 
   constructor(private subjectService: SubjectSerivce
     , private questionService: QuestionService
     , private studentService: StudentService
+    , private asignmentService: AssignmentService
     , private router: Router) {
     this.assignment = new AssignmentModel();
     this.assignment.student = new StudentModel();
+    this.assignment.question = new QuestionModel();
     this.subject = new SubjectModel();
-    this.subjects=[];
+    this.subjects = [];
   }
 
   ngOnInit() {
-    this.grades = ["11", "12"];
-    this.faculties = ["Science", " Management"];
+    this.grades = ['11', '12'];
+    this.faculties = ['Science', ' Management'];
     this.getStudent();
   }
-  getStudent(){
+  getStudent() {
     this.studentService.getById(this.getStudentId()).subscribe(
-       data =>{
+       data => {
         this.assignment.student = JSON.parse(JSON.parse(JSON.stringify(data))._body);
        }, error => {
- 
+
        }
      );
    }
- 
-   getStudentId(){
+
+   getStudentId() {
      return localStorage.getItem('id');
    }
 
@@ -69,13 +71,24 @@ export class SubmitAssignmentComponent implements OnInit {
       this.getSubject(this.grade, this.faculty);
   }
 
-  getQuestions(event: any){
+  getQuestions(event: any) {
     this.questionService.getByGradeAndSubject(this.grade, this.subject.name).subscribe(
-      data =>{
+      data => {
         this.questions = JSON.parse( JSON.parse(JSON.stringify(data))._body);
-      }, error =>{
+      }, error => {
 
       }
     );
+  }
+
+  submitAssignment() {
+    console.log(this.assignment);
+      this.asignmentService.submitAssignment(this.assignment).subscribe(
+        data => {
+            this.router.navigateByUrl('/assignment/list');
+        }, error => {
+
+        }
+      );
   }
 }
