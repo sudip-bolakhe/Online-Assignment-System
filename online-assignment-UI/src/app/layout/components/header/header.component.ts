@@ -9,9 +9,9 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent implements OnInit {
     public pushRightClass: string;
-
+    public name:string;
     constructor(private translate: TranslateService, public router: Router) {
-
+        this.name = localStorage.getItem("Name");
         this.router.events.subscribe(val => {
             if (
                 val instanceof NavigationEnd &&
@@ -43,7 +43,7 @@ export class HeaderComponent implements OnInit {
     }
 
     onLoggedout() {
-        localStorage.removeItem('isLoggedin');
+        localStorage.clear();
     }
 
     changeLang(language: string) {

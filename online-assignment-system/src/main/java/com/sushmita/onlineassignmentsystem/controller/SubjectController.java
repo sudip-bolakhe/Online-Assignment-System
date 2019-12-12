@@ -19,4 +19,15 @@ public class SubjectController {
     public List<Subject> getByGradeAndFaculty(@PathVariable String grade, @RequestParam String faculty){
         return subjectRepository.findByGradeAndFaculty(grade, faculty);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable long id){
+
+        subjectRepository.deleteById(id);
+    }
+
+    @GetMapping("/count")
+    public double count(){
+        return subjectRepository.count();
+    }
 }

@@ -140,20 +140,6 @@
       </div>
 
 
-    <!-- Role-->
-    <div class="form-group">
-      <label class="control-label" for="role">Role</label> <span  *ngIf="role.errors?.required" style="color:red">*</span>
-      <div class="col-md-4">
-        <select id="role" #role="ngModel" class="form-control" name="role" required [(ngModel)]="student.user.role" >
-          <option  >User</option>
-          <option  >Teacher</option>
-        </select>
-        </div>
-       
-    </div>
-
-
-
   <!-- buttons -->
   <div class="form-group">
     <label class="col-md-4 control-label" for="submitBtn"></label>

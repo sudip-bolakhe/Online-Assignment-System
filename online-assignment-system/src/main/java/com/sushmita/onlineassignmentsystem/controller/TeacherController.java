@@ -34,4 +34,16 @@ public class TeacherController {
     public Teacher getById(@PathVariable long id){
         return teacherService.getById(id);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable long id){
+
+        teacherService.delete(id);
+    }
+
+    @GetMapping("/count")
+    public double count(){
+        return teacherService.countAll();
+    }
+
 }

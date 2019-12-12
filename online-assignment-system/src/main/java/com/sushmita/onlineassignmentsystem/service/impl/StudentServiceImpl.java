@@ -13,6 +13,7 @@ import java.util.List;
 @Service
 @Transactional
 public class StudentServiceImpl implements StudentService {
+
     @Autowired
     private StudentRepository studentRepository;
 
@@ -33,5 +34,21 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Student getById(long id) {
         return studentRepository.findById(id).orElseThrow(() -> new RuntimeException("Student Not Found"));
+    }
+
+    @Override
+    public void delete(long id) {
+        studentRepository.deleteById(id);
+    }
+
+    @Override
+    public double countAll() {
+        return studentRepository.count();
+    }
+
+    @Override
+    public Student findById(long id) {
+        return studentRepository.findById(id).orElseThrow(() ->  new RuntimeException("Not Found"));
+
     }
 }

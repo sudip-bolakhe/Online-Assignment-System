@@ -31,4 +31,14 @@ public class QuestionServiceImpl implements QuestionService {
     public List<Question> getBySubjectAndClass(String subject, String grade) {
         return questionRepository.findAllBySubject_NameAndSubject_GradeAndDeadLineAfter(subject, grade, LocalDate.now());
     }
+
+    @Override
+    public void delete(long id) {
+        questionRepository.deleteById(id);
+    }
+
+    @Override
+    public double countAll() {
+        return questionRepository.count();
+    }
 }

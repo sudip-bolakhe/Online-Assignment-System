@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewAssignmentComponent implements OnInit {
 
+  student = false;
   constructor() { }
 
   ngOnInit() {
+    const  isStudent = localStorage.getItem('Role');
+    if ( isStudent == "Student") {
+      this.student = true;
+    }
   }
 
 }

@@ -33,4 +33,15 @@ public class QuestionController {
     public List<Question> getAll(@PathVariable String grade,@PathVariable String subject){
         return questionService.getBySubjectAndClass(subject, grade);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable long id){
+
+        questionService.delete(id);
+    }
+
+    @GetMapping("/count")
+    public double count(){
+        return questionService.countAll();
+    }
 }

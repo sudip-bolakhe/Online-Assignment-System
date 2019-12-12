@@ -12,6 +12,9 @@ export class SidebarComponent implements OnInit {
     collapsed: boolean;
     showMenu: string;
     pushRightClass: string;
+    student= false;
+    teacher= false;
+    admin= false;
 
     @Output() collapsedEvent = new EventEmitter<boolean>();
 
@@ -32,8 +35,24 @@ export class SidebarComponent implements OnInit {
         this.collapsed = false;
         this.showMenu = '';
         this.pushRightClass = 'push-right';
+
+      this.fixRole();
     }
 
+    fixRole(){
+        const  role = localStorage.getItem('Role');
+        if ( role == "Student") {
+          this.student = true;
+        }
+
+        if ( role == "Teacher") {
+            this.teacher = true;
+          }
+
+          if ( role == "Admin") {
+            this.admin = true;
+          }
+    }
 
     eventCalled() {
         this.isActive = !this.isActive;

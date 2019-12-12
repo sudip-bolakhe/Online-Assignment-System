@@ -34,4 +34,20 @@ public class TeacherServiceImpl implements TeacherService {
     public Teacher getById(long id) {
         return teacherRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
     }
+
+    @Override
+    public void delete(long id) {
+        teacherRepository.deleteById(id);
+    }
+
+    @Override
+    public double countAll() {
+        return teacherRepository.count();
+    }
+
+    @Override
+    public Teacher findById(long id) {
+        return teacherRepository.findById(id).orElseThrow(() ->  new RuntimeException("Not Found"));
+
+    }
 }

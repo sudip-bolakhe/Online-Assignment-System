@@ -36,4 +36,14 @@ public class FeedbackServiceImpl implements FeedbackService {
         feedback.setAnswer(answer);
         return feedbackRepository.save(feedback);
     }
+
+    @Override
+    public void delete(long id) {
+        answerRepository.deleteById(id);
+    }
+
+    @Override
+    public double countAll() {
+        return answerRepository.count();
+    }
 }
