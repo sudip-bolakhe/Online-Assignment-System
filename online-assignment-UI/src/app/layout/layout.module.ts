@@ -7,9 +7,6 @@ import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-import { SubjectSerivce } from './subject/subject.service';
-import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -17,9 +14,8 @@ import { HttpModule } from '@angular/http';
         CommonModule,
         LayoutRoutingModule,
         TranslateModule,
-        NgbDropdownModule,NgxDatatableModule, HttpModule
+        NgbDropdownModule
     ],
     declarations: [LayoutComponent, SidebarComponent, HeaderComponent],
-    providers : [SubjectSerivce]
 })
 export class LayoutModule {}

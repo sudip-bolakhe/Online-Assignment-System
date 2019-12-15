@@ -175,6 +175,30 @@
             </li>
         </div>
 
+                 <!-- menu for Subject -->
+                 <div class="nested-menu" >
+                    <a class="list-group-item" (click)="addExpandClass('subject')">
+                        <i ></i>&nbsp;
+                        <span>{{ 'Subject' | translate }}</span>
+                    </a>
+                    <li class="nested" [class.expand]="showMenu === 'subject'">
+                        <ul class="submenu" >
+                            <li *ngIf= "admin">
+                                <a routerLink="/subject/add" [routerLinkActive]="['router-link-active']">
+                                    <i class="fa fa-monument"></i>&nbsp;
+                                    <span>{{ 'Add Subject' | translate }}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="/subject/list" [routerLinkActive]="['router-link-active']" >
+                                    <i class="fa fa-monument"></i>&nbsp;
+                                    <span>{{ 'View Subjects' | translate }}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </div>
+
          <!-- menu for Teacher -->
         <div class="nested-menu" *ngIf= "admin">
          <a class="list-group-item" (click)="addExpandClass('teacher')">

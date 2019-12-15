@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/feedbacks")
+@RequestMapping("/feedback")
 public class FeedbackController {
 
     @Autowired
@@ -30,14 +30,8 @@ public class FeedbackController {
         return feedbackService.saveOrUpdateFeedback(feedback);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable long id){
-
-        feedbackService.delete(id);
-    }
-
-    @GetMapping("/count")
-    public double count(){
-        return feedbackService.countAll();
+    @GetMapping("/answer/{id}")
+    public Feedback getByAnswerId(@PathVariable long id){
+        return feedbackService.getByAnswerId(id);
     }
 }

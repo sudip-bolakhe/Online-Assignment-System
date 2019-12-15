@@ -10,7 +10,5 @@ public interface FeedbackService {
 
     Feedback saveOrUpdateFeedback( Feedback feedback);
 
-    void  delete(long id);
-
-    double countAll();
+    Feedback getByAnswerId(long id);
 }

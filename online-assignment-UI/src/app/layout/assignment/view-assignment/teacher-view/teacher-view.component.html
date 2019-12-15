@@ -23,6 +23,13 @@
                                 {{sub.question.subject.name}}
                             </ng-template>
                 </ngx-datatable-column>
+
+                <ngx-datatable-column name="Student">
+                    <ng-template let-student="row" ngx-datatable-cell-template>
+                            {{student.student.user.firstName}} {{student.student.user.lastName}}
+                        </ng-template>
+            </ngx-datatable-column>
+
                 <ngx-datatable-column name="Answer">
                         <ng-template let-ans="row" ngx-datatable-cell-template>
                                 {{ans.value}}

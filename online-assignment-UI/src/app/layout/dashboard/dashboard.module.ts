@@ -11,6 +11,7 @@ import {
 } from './components';
 import { StatModule } from '../../shared';
 import { DashboardService } from './dashboard.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
     imports: [
@@ -18,7 +19,8 @@ import { DashboardService } from './dashboard.service';
         NgbCarouselModule,
         NgbAlertModule,
         DashboardRoutingModule,
-        StatModule
+        StatModule,
+        HttpModule
     ],
     declarations: [
         DashboardComponent,

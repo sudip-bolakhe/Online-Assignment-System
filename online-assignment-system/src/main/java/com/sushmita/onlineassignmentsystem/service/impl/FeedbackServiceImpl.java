@@ -18,10 +18,6 @@ import java.util.List;
 public class FeedbackServiceImpl implements FeedbackService {
     @Autowired
     private FeedbackRepository feedbackRepository;
-    @Autowired
-    private AnswerRepository answerRepository;
-    @Autowired
-    private TeacherRepository teacherRepository;
     @Override
     public List<Feedback> getAllFeedback() {
         return feedbackRepository.findAll();
@@ -29,21 +25,11 @@ public class FeedbackServiceImpl implements FeedbackService {
 
     @Override
     public Feedback saveOrUpdateFeedback(Feedback feedback) {
-
-        Teacher teacher = teacherRepository.save(feedback.getTeacher());
-        feedback.setTeacher(teacher);
-        Answer answer = answerRepository.save(feedback.getAnswer());
-        feedback.setAnswer(answer);
         return feedbackRepository.save(feedback);
     }
 
     @Override
-    public void delete(long id) {
-        answerRepository.deleteById(id);
-    }
-
-    @Override
-    public double countAll() {
-        return answerRepository.count();
+    public Feedback getByAnswerId(long id) {
+        return feedbackRepository.findByAnswer_Id(id).orElseThrow(() -> new RuntimeException("Feedback Not Found"));
     }
 }
