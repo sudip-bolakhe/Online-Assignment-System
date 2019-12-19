@@ -33,6 +33,6 @@ public class UserServiceImpl implements UserService {
         else if(user.getRole().equalsIgnoreCase("Student"))
             return studentRepository.findByUser(user).orElseThrow(() -> new RuntimeException("Error found"));
         else
-            throw new RuntimeException("User not found");
+           return user;
     }
 }

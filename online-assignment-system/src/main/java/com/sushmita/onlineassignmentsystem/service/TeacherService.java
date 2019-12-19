@@ -9,4 +9,10 @@ public interface TeacherService {
     Teacher saveOrUpdateTeacher(Teacher teacher);
 
     Teacher getById(long id);
+
+    void  delete(long id);
+
+    double countAll();
+
+    Teacher findById(long id);
 }

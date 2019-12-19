@@ -12,4 +12,9 @@ public interface QuestionService {
      Question saveOrUpdateQuestion(Question question);
 
      List<Question> getBySubjectAndClass(String subject, String grade);
+
+    void  delete(long id);
+
+    double countAll();
+
 }

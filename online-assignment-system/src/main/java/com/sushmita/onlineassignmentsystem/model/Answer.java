@@ -9,9 +9,6 @@ public class Answer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "answerId")
     private Long id;
-    private String subject;
-    private String faculty;
-
     @ManyToOne
     @JoinColumn(name = "studentId")
     private Student student;
@@ -19,6 +16,8 @@ public class Answer {
     @ManyToOne
     @JoinColumn(name = "questionId")
     private Question question;
+
+    private String value;
 
     public Answer() {
 
@@ -30,22 +29,6 @@ public class Answer {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
-    public String getFaculty() {
-        return faculty;
-    }
-
-    public void setFaculty(String faculty) {
-        this.faculty = faculty;
     }
 
     public Student getStudent() {
@@ -62,5 +45,13 @@ public class Answer {
 
     public void setQuestion(Question question) {
         this.question = question;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 }

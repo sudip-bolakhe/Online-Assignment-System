@@ -6,6 +6,15 @@ import java.util.List;
 
 public interface AnswerService {
 
-    List<Answer> getAllAnswer();
+    List<Answer> getByStudentId(long id);
+
+    List<Answer> getByTeacherId(long id);
+
     Answer saveOrUpdateAnswer(Answer answer);
+
+    void  delete(long id);
+
+    double countAll();
+
+    Answer findById(long id);
 }

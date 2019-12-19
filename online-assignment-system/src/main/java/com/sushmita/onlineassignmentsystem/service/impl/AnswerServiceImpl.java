@@ -21,9 +21,15 @@ public class AnswerServiceImpl implements AnswerService {
     private StudentRepository studentRepository;
     @Autowired
     private QuestionRepository questionRepository;
+
     @Override
-    public List<Answer> getAllAnswer() {
-        return answerRepository.findAll();
+    public List<Answer> getByStudentId(long id) {
+        return answerRepository.findByStudent_Id(id);
+    }
+
+    @Override
+    public List<Answer> getByTeacherId(long id) {
+        return answerRepository.findAllByQuestion_Teacher_Id(id);
     }
 
     @Override
@@ -35,5 +41,20 @@ public class AnswerServiceImpl implements AnswerService {
         answer.setQuestion(question);
 
         return answerRepository.save(answer);
+    }
+
+    @Override
+    public void delete(long id) {
+        answerRepository.deleteById(id);
+    }
+
+    @Override
+    public double countAll() {
+       return answerRepository.count();
+    }
+
+    @Override
+    public Answer findById(long id) {
+        return answerRepository.findById(id).orElseThrow(() ->  new RuntimeException("Not Found"));
     }
 }
