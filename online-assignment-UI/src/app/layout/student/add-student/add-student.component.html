@@ -110,18 +110,13 @@
   </div>
 
     <!-- Faculty-->
-    <div class="form-group">
-      <label class=" control-label" for="faculty">Faculty</label><span  *ngIf="faculty.errors?.required" style="color:red">*</span>
-      <div class="col-md-4">
-        <input id="faculty" [(ngModel)]="student.faculty" #faculty="ngModel" name="faculty" placeholder="Science" class="form-control input-md" required  pattern="^[a-zA-Z]+$" type="text">
-      </div>
-      <div *ngIf="faculty?.touched">
-        
-              <div class="text-danger" *ngIf="faculty.errors?.required"> Faculty is required
-              </div>
-              <div class="text-danger" *ngIf="faculty.errors?.pattern"> Invalid Faculty 
-              </div>
-            </div>
+    <div class="row">
+      <label class="col-md-3 control-label ">Choose Faculty</label>
+      <select id="faculty" [(ngModel)]="student.faculty" name="grade">
+        <option value="">Choose Faculty</option>
+        <option *ngFor="let fac of faculty" [ngValue]="fac">{{fac}}
+        </option>
+      </select>
     </div>
 
      <!-- Roll No-->

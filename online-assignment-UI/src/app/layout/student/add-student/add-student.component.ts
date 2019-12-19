@@ -12,6 +12,7 @@ import { StudentService } from '../student.service';
 export class AddStudentComponent implements OnInit {
 
   student: StudentModel;
+  faculty =["Science", "Management"];
   errors:String = new String(" ");
   constructor(private router : Router, private studnetService: StudentService) {
 

@@ -13,7 +13,7 @@
 
   <div class="row">
     <label class="col-md-3 control-label ">Choose Faculty</label>
-    <select id="faculty" [(ngModel)]="question.subject.faculty" name="grade" (change) ="changeSubject($event)">
+    <select id="faculty" [(ngModel)]="question.subject.faculty" name="grade" (change)= changeSubject($event)>
       <option value="">Choose Faculty</option>
       <option *ngFor="let fac of faculty" [ngValue]="fac">{{fac}}
       </option>

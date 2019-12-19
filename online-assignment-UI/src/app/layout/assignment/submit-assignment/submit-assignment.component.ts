@@ -39,7 +39,7 @@ export class SubmitAssignmentComponent implements OnInit {
 
   ngOnInit() {
     this.grades = ['11', '12'];
-    this.faculties = ['Science', ' Management'];
+    this.faculty = localStorage.getItem("Faculty");
     this.getStudent();
   }
   getStudent() {
