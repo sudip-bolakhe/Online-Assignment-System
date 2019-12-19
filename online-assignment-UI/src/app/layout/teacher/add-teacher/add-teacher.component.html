@@ -122,20 +122,7 @@
                 <div class="text-danger" *ngIf="subject.errors?.pattern"> Invalid Faculty 
                 </div>
               </div>
-      </div>
-  
-      <!-- Role-->
-      <div class="form-group">
-        <label class="control-label" for="role">Role</label> <span  *ngIf="role.errors?.required" style="color:red">*</span>
-        <div class="col-md-4">
-          <select id="role" #role="ngModel" class="form-control" name="role" required [(ngModel)]="teacher.user.role" >
-            <option  >User</option>
-            <option  >Teacher</option>
-          </select>
-          </div>
-         
-      </div>
-  
+      </div>  
   
   
     <!-- buttons -->

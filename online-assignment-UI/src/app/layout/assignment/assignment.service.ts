@@ -10,6 +10,20 @@ export class AssignmentService{
     submitAssignment(assignment){
         return this.http.post(this.assignmentUrl + "/save", assignment);
     }
-
     
+    getByTeacherId(id){
+        return this.http.get(this.assignmentUrl + "/teacher/"+id);
+    }
+    
+    getByStudentId(id){
+        return this.http.get(this.assignmentUrl + "/student/"+id);
+    }
+    delete(id){
+        return this.http.delete(this.assignmentUrl + "/delete/"+id);
+    }
+
+    getById(id){
+        return this.http.get(this.assignmentUrl + "/"+id);
+    }
+
 }

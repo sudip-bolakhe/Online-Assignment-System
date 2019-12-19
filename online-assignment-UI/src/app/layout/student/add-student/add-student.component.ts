@@ -14,8 +14,10 @@ export class AddStudentComponent implements OnInit {
   student: StudentModel;
   errors:String = new String(" ");
   constructor(private router : Router, private studnetService: StudentService) {
+
    this.student = new StudentModel();
    this.student.user = new UserModel();
+   this.student.user.role ='Student';
    }
 
   ngOnInit() {

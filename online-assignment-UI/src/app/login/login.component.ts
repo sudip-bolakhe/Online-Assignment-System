@@ -32,11 +32,21 @@ export class LoginComponent implements OnInit {
     makeLogin(user) {
        this.loinService.login(user).subscribe(
            data => {
-               let userJson = JSON.parse(JSON.parse(JSON.stringify(data))._body);
-               localStorage.setItem("id", userJson.id);
-                this.router.navigateByUrl("/dashboard");
-           }, error => {
-
+            let  userJson = JSON.parse(JSON.parse(JSON.stringify(data))._body);
+            console.log(userJson);
+            localStorage.setItem("id", userJson.id);
+            if("user" in userJson){
+             localStorage.setItem("Role", userJson.user.role);
+             localStorage.setItem("Name", userJson.user.firstName + " " + userJson.user.lastName);
+                
+            }else{
+                localStorage.setItem("Role", userJson.role);
+                localStorage.setItem("Name", userJson.firstName + " " + userJson.lastName);
+                
+            }
+            
+            this.router.navigateByUrl("/dashboard");
+           }, error => {              
            }
        );
         localStorage.setItem('isLoggedin', 'true');

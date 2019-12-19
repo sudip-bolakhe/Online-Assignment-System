@@ -28,11 +28,11 @@ export class AddQuestionComponent implements OnInit {
     this.question.teacher = new TeacherModel();
 
   }
- 
+
 
   ngOnInit() {
     this.grades = ["11", "12"];
-    this.faculty = ["Science", " Management"];
+    this.faculty = ["Science", "Management"];
     this.getTeacher();
   }
 

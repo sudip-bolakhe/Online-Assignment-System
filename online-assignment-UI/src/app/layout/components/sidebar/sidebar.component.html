@@ -152,14 +152,14 @@
     <div class="list-group">
 
          <!-- menu for student -->
-        <div class="nested-menu">
+        <div class="nested-menu" *ngIf= "!student">
             <a class="list-group-item" (click)="addExpandClass('student')">
                 <i ></i>&nbsp;
                 <span>{{ 'Student' | translate }}</span>
             </a>
             <li class="nested" [class.expand]="showMenu === 'student'">
                 <ul class="submenu">
-                    <li>
+                    <li *ngIf= "admin">
                         <a routerLink="/student/add" [routerLinkActive]="['router-link-active']">
                             <i class="fa fa-monument"></i>&nbsp;
                             <span>{{ 'Add Student' | translate }}</span>
@@ -175,8 +175,32 @@
             </li>
         </div>
 
+                 <!-- menu for Subject -->
+                 <div class="nested-menu" >
+                    <a class="list-group-item" (click)="addExpandClass('subject')">
+                        <i ></i>&nbsp;
+                        <span>{{ 'Subject' | translate }}</span>
+                    </a>
+                    <li class="nested" [class.expand]="showMenu === 'subject'">
+                        <ul class="submenu" >
+                            <li *ngIf= "admin">
+                                <a routerLink="/subject/add" [routerLinkActive]="['router-link-active']">
+                                    <i class="fa fa-monument"></i>&nbsp;
+                                    <span>{{ 'Add Subject' | translate }}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="/subject/list" [routerLinkActive]="['router-link-active']" >
+                                    <i class="fa fa-monument"></i>&nbsp;
+                                    <span>{{ 'View Subjects' | translate }}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </div>
+
          <!-- menu for Teacher -->
-        <div class="nested-menu">
+        <div class="nested-menu" *ngIf= "admin">
          <a class="list-group-item" (click)="addExpandClass('teacher')">
              <i ></i>&nbsp;
              <span>{{ 'Teacher' | translate }}</span>
@@ -207,7 +231,7 @@
             </a>
             <li class="nested" [class.expand]="showMenu === 'question'">
                 <ul class="submenu">
-                    <li>
+                    <li *ngIf= "teacher">
                         <a routerLink="/question/add" [routerLinkActive]="['router-link-active']">
                             <i class="fa fa-monument"></i>&nbsp;
                             <span>{{ 'Add Questions' | translate }}</span>
@@ -224,14 +248,14 @@
         </div>
 
         <!-- menu for Assignment -->
-        <div class="nested-menu">
+        <div class="nested-menu" *ngIf= "!admin">
                 <a class="list-group-item" (click)="addExpandClass('assignment')">
                     <i ></i>&nbsp;
                     <span>{{ 'Assignment' | translate }}</span>
                 </a>
                 <li class="nested" [class.expand]="showMenu === 'assignment'">
                     <ul class="submenu">
-                        <li>
+                        <li *ngIf= "student">
                             <a routerLink="/assignment/submit" [routerLinkActive]="['router-link-active']">
                                 <i class="fa fa-monument"></i>&nbsp;
                                 <span>{{ 'Submit Assignment' | translate }}</span>

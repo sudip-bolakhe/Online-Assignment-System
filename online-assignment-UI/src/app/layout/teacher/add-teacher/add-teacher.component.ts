@@ -16,6 +16,7 @@ export class AddTeacherComponent implements OnInit {
   constructor(private teacherService : TeacherService, private router : Router) { 
     this.teacher = new TeacherModel();
     this.teacher.user = new UserModel();
+    this.teacher.user.role ='Teacher';
     this.errors= new String();
   }
 
