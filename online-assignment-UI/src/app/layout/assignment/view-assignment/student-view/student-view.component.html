@@ -1,5 +1,4 @@
 <div class="card mb-12">
-    <div class="card-header">Products</div>
     <div class="card-body table-responsive">
         <div>
              <ngx-datatable #table class="bootstrap" [rows]="rows" [loadingIndicator]="loadingIndicator" [columns]="columns" [columnMode]="'force'"
@@ -30,8 +29,7 @@
                         <i class="fa fa-pencil-square-o" [routerLink]="['/product/editproduct/'+value]">
                         </i>
                         <i class="fa fa-eye"  [routerLink]="['/assignment/'+value]"></i>
-                        <i class="fa fa-trash" (click)="deleteAssignment(value)">
-                        </i>
+                       
                     </ng-template>
                 </ngx-datatable-column>
             </ngx-datatable> 

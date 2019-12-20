@@ -1,4 +1,5 @@
 export class UserModel{
+    public id:string;
     public username:String;
     public password:String;
     public firstName:String;

@@ -37,9 +37,6 @@
                 <ng-template let-rowIndex="rowIndex" let-id="id" let-value="value" ngx-datatable-cell-template>
                     <i class="fa fa-pencil-square-o" [routerLink]="['/product/editproduct/'+value]">
                     </i>
-
-                    <i class="fa fa-trash" (click)="deleteProduct(value)">
-                    </i>
                 </ng-template>
             </ngx-datatable-column>
         </ngx-datatable> 
