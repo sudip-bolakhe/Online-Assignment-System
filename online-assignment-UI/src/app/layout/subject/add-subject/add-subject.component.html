@@ -29,7 +29,7 @@
       <label class="col-md-4 control-label" for="submitBtn"></label>
       <div class="col-md-8">
         <button type="submit" id="submitBtn" name="submitBtn" class="btn btn-success">Submit</button>
-        <button type ="button" id="cancelBtn" name="cancelBtn" class="btn btn-danger">Cancel</button>
+        <a id="cancelBtn" routerLink="/dashboard" [routerLinkActive]="['router-link-active']" name="cancelBtn" class="btn btn-danger">Cancel</a>
       </div>
     </div>
   

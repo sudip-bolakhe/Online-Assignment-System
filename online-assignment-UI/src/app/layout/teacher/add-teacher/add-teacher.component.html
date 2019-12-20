@@ -4,7 +4,7 @@
     <div class="form-group">
       <label class=" control-label" for="username">Username</label><span  *ngIf="username.errors?.required" style="color:red">*</span>
       <div class="col-md-4">
-        <input id="username" pattern="^[a-zA-Z0-9_.]*$" #username="ngModel" [(ngModel)]=" teacher.user.username" name="username" placeholder="username" class="form-control input-md" required="" type="text">
+        <input id="username" pattern="^[a-zA-Z][A-Za-z]+\d*" #username="ngModel" [(ngModel)]=" teacher.user.username" name="username" placeholder="username" class="form-control input-md" required="" type="text">
       </div>
       <div *ngIf="username?.touched">
         
@@ -130,8 +130,8 @@
       <label class="col-md-4 control-label" for="submitBtn"></label>
       <div class="col-md-8">
         <button id="submitBtn" name="submitBtn"  [disabled]="addUserForm.invalid" class="btn btn-success">Submit</button>
-        <button id="cancelBtn" name="cancelBtn" class="btn btn-danger">Cancel</button>
-      </div>
+        <a id="cancelBtn" routerLink="/dashboard" [routerLinkActive]="['router-link-active']" name="cancelBtn" class="btn btn-danger">Cancel</a>
+   </div>
     </div>
   
   
