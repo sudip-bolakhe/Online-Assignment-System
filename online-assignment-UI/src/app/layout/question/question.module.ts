@@ -10,6 +10,7 @@ import { HttpModule } from '@angular/http';
 import { QuestionService } from './question.service';
 import { TeacherService } from '../teacher/teacher.service';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { StudentService } from '../student/student.service';
 
 
 @NgModule({
@@ -21,6 +22,6 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     HttpModule,
     NgxDatatableModule
   ],
-  providers : [SubjectSerivce, QuestionService, TeacherService]
+  providers : [SubjectSerivce, QuestionService, TeacherService, StudentService]
 })
 export class QuestionModule { }

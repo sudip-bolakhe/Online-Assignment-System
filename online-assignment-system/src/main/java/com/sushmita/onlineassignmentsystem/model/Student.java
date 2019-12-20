@@ -11,6 +11,7 @@ public class Student {
     private Long id;
     private int roll;
     private String faculty;
+    private String grade;
     @ManyToOne
     @JoinColumn(name = "userId")
     private User user;
@@ -48,5 +49,13 @@ public class Student {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
     }
 }

@@ -41,4 +41,14 @@ public class QuestionServiceImpl implements QuestionService {
     public double countAll() {
         return questionRepository.count();
     }
+
+    @Override
+    public List<Question> getAll() {
+        return questionRepository.findAll();
+    }
+
+    @Override
+    public List<Question> getAllQuestionForStudent(String grade, String faculty) {
+        return questionRepository.findAllBySubject_GradeAndSubject_Faculty(grade, faculty);
+    }
 }

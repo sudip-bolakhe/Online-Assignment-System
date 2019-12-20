@@ -17,4 +17,8 @@ public interface QuestionService {
 
     double countAll();
 
+    List<Question> getAll();
+
+    List<Question> getAllQuestionForStudent(String grade, String faculty);
+
 }

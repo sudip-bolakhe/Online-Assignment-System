@@ -19,6 +19,11 @@ public class QuestionController {
         return questionService.getAllQuestion( id);
     }
 
+    @GetMapping("/all")
+    public List<Question> getList(){
+        return questionService.getAll();
+    }
+
     @PostMapping("/save")
     public Question addQuestion(@RequestBody Question question){
         return questionService.saveOrUpdateQuestion(question);
@@ -43,5 +48,10 @@ public class QuestionController {
     @GetMapping("/count")
     public double count(){
         return questionService.countAll();
+    }
+
+    @GetMapping("/grade/{grade}/faculty/{faculty}")
+    public List<Question> getForStudent(@PathVariable String grade,@PathVariable String faculty){
+        return questionService.getAllQuestionForStudent(grade, faculty);
     }
 }

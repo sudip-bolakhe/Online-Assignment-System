@@ -20,4 +20,12 @@ export class QuestionService{
   getByGradeAndSubject(grade, subject) {
     return this.http.get(this.questionUrl + "/grade/" + grade + "/subject/"+subject );
   }
+
+  getByGradeAndFaculty(grade, faculty) {
+    return this.http.get(this.questionUrl + "/grade/" + grade + "/faculty/"+ faculty );
+  }
+
+  getAll() {
+    return this.http.get(this.questionUrl + "/all");
+  }
 }
