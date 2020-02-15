@@ -13,6 +13,7 @@ const routes: Routes = [
             { path: 'teacher', loadChildren: () => import('./teacher/teacher.module').then(m => m.TeacherModule) },
             { path: 'question', loadChildren: () => import('./question/question.module').then(m => m.QuestionModule) },
             { path: 'assignment', loadChildren: () => import('./assignment/assignment.module').then(m => m.AssignmentModule) },
+            { path: 'report', loadChildren: () => import('./report/report.module').then(m => m.ReportModule) },
             { path: 'subject', loadChildren: () => import('./subject/subject.module').then(m => m.SubjectModule) }
         ]
     }

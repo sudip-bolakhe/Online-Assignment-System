@@ -247,6 +247,24 @@
             </li>
         </div>
 
+         <!-- menu for Report -->
+         <div class="nested-menu" *ngIf= "admin">
+            <a class="list-group-item" (click)="addExpandClass('report')">
+                <i ></i>&nbsp;
+                <span>{{ 'Report' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'report'">
+                <ul class="submenu">
+                 
+                    <li>
+                        <a routerLink="/report" [routerLinkActive]="['router-link-active']" >
+                            <i class="fa fa-monument"></i>&nbsp;
+                            <span>{{ 'View Report' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
         <!-- menu for Assignment -->
         <div class="nested-menu" *ngIf= "!admin">
                 <a class="list-group-item" (click)="addExpandClass('assignment')">
