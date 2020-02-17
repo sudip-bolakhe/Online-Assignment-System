@@ -1,8 +1,6 @@
 package com.sushmita.onlineassignmentsystem.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -10,6 +8,7 @@ import java.time.LocalDate;
 public class Report {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String content;
     private String type;

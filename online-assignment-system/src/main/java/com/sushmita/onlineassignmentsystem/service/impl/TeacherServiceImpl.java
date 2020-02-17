@@ -41,7 +41,7 @@ public class TeacherServiceImpl implements TeacherService {
 
     private void addReport(Teacher teacher, String action) {
         String content = NameUtil.getFullName(teacher.getUser()) + " was " + action ;
-        reportRepository.save(new Report(content, "Answer"));
+        reportRepository.save(new Report(content, "Teacher"));
     }
 
     @Override

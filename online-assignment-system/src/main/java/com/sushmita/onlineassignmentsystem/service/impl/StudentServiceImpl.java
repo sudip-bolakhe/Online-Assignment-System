@@ -64,6 +64,6 @@ public class StudentServiceImpl implements StudentService {
 
     private void addReport(Student student, String action) {
         String content = NameUtil.getFullName(student.getUser()) + " was " + action ;
-        reportRepository.save(new Report(content, "Answer"));
+        reportRepository.save(new Report(content, "Student"));
     }
 }
